@@ -1,0 +1,36 @@
+{"level":"error","message":"Wed Sep 25 2024 15:17:04 GMT+0300 (GMT+03:00)-{\"name\":\"Data Not found\",\"statusCode\":{},\"isOperational\":true}","private":true}
+{"level":"error","message":"Wed Sep 25 2024 15:17:14 GMT+0300 (GMT+03:00)-{\"name\":\"Data Not found\",\"statusCode\":{},\"isOperational\":true}","private":true}
+{"level":"error","message":"Wed Sep 25 2024 15:18:35 GMT+0300 (GMT+03:00)-{\"name\":\"Data Not found\",\"statusCode\":{},\"isOperational\":true}","private":true}
+{"level":"error","message":"Wed Sep 25 2024 15:23:14 GMT+0300 (GMT+03:00)-{\"name\":\"Data Not found\",\"statusCode\":{},\"isOperational\":true}","private":true}
+{"level":"error","message":"Wed Sep 25 2024 15:23:25 GMT+0300 (GMT+03:00)-{\"name\":\"Data Not found\",\"statusCode\":{},\"isOperational\":true}","private":true}
+{"level":"error","message":"Wed Sep 25 2024 15:28:46 GMT+0300 (GMT+03:00)-{\"name\":\"Data Not found\",\"statusCode\":{},\"isOperational\":true}","private":true}
+{"level":"error","message":"Wed Sep 25 2024 15:33:28 GMT+0300 (GMT+03:00)-{\"name\":\"Data Not found\",\"statusCode\":{},\"isOperational\":true}","private":true}
+{"level":"error","message":"Wed Sep 25 2024 15:33:45 GMT+0300 (GMT+03:00)-{\"name\":\"Data Not found\",\"statusCode\":{},\"isOperational\":true}","private":true}
+{"level":"error","message":"Wed Sep 25 2024 15:33:54 GMT+0300 (GMT+03:00)-{\"name\":\"Data Not found\",\"statusCode\":{},\"isOperational\":true}","private":true}
+{"level":"error","message":"Wed Sep 25 2024 15:43:38 GMT+0300 (GMT+03:00)-{\"name\":\"Data Not found\",\"statusCode\":{},\"isOperational\":true}","private":true}
+{"level":"error","message":"Wed Sep 25 2024 15:43:59 GMT+0300 (GMT+03:00)-{\"name\":\"Data Not found\",\"statusCode\":{},\"isOperational\":true}","private":true}
+{"level":"error","message":"Wed Sep 25 2024 15:47:34 GMT+0300 (GMT+03:00)-{\"name\":\"NOT FOUND\",\"statusCode\":400,\"isOperational\":true,\"errorStack\":false,\"logError\":{}}","private":true}
+{"level":"error","message":"Wed Sep 25 2024 15:47:36 GMT+0300 (GMT+03:00)-{\"name\":\"NOT FOUND\",\"statusCode\":400,\"isOperational\":true,\"errorStack\":false,\"logError\":{}}","private":true}
+{"level":"error","message":"Wed Sep 25 2024 15:47:36 GMT+0300 (GMT+03:00)-{\"name\":\"NOT FOUND\",\"statusCode\":400,\"isOperational\":true,\"errorStack\":false,\"logError\":{}}","private":true}
+{"level":"error","message":"Wed Sep 25 2024 15:47:37 GMT+0300 (GMT+03:00)-{\"name\":\"NOT FOUND\",\"statusCode\":400,\"isOperational\":true,\"errorStack\":false,\"logError\":{}}","private":true}
+{"level":"error","message":"Wed Sep 25 2024 15:47:37 GMT+0300 (GMT+03:00)-{\"name\":\"NOT FOUND\",\"statusCode\":400,\"isOperational\":true,\"errorStack\":false,\"logError\":{}}","private":true}
+{"level":"error","message":"Wed Sep 25 2024 15:47:38 GMT+0300 (GMT+03:00)-{\"name\":\"NOT FOUND\",\"statusCode\":400,\"isOperational\":true,\"errorStack\":false,\"logError\":{}}","private":true}
+{"level":"error","message":"Wed Sep 25 2024 15:47:42 GMT+0300 (GMT+03:00)-{\"name\":\"NOT FOUND\",\"statusCode\":400,\"isOperational\":true,\"errorStack\":false,\"logError\":{}}","private":true}
+{"level":"error","message":"Wed Sep 25 2024 15:49:59 GMT+0300 (GMT+03:00)-{\"statusCode\":{},\"isOperational\":true}","private":true}
+{"level":"error","message":"Wed Sep 25 2024 15:50:16 GMT+0300 (GMT+03:00)-{\"statusCode\":{},\"isOperational\":true}","private":true}
+{"level":"error","message":"Wed Sep 25 2024 15:51:15 GMT+0300 (GMT+03:00)-{\"name\":\"NOT FOUND\",\"statusCode\":400,\"isOperational\":true,\"errorStack\":false,\"logError\":{}}","private":true}
+{"level":"error","message":"Wed Sep 25 2024 15:51:33 GMT+0300 (GMT+03:00)-{\"name\":\"NOT FOUND\",\"statusCode\":400,\"isOperational\":true,\"errorStack\":false,\"logError\":{}}","private":true}
+{"level":"error","message":"Wed Sep 25 2024 15:51:33 GMT+0300 (GMT+03:00)-{\"name\":\"NOT FOUND\",\"statusCode\":400,\"isOperational\":true,\"errorStack\":false,\"logError\":{}}","private":true}
+{"level":"error","message":"Wed Sep 25 2024 16:03:36 GMT+0300 (GMT+03:00)-{\"name\":\"NOT FOUND\",\"statusCode\":400,\"isOperational\":true,\"errorStack\":false,\"logError\":{}}","private":true}
+{"level":"error","message":"Wed Sep 25 2024 16:04:50 GMT+0300 (GMT+03:00)-{\"name\":\"NOT FOUND\",\"statusCode\":400,\"isOperational\":true,\"errorStack\":false,\"logError\":{}}","private":true}
+{"level":"error","message":"Wed Sep 25 2024 16:04:51 GMT+0300 (GMT+03:00)-{\"name\":\"NOT FOUND\",\"statusCode\":400,\"isOperational\":true,\"errorStack\":false,\"logError\":{}}","private":true}
+{"level":"error","message":"Wed Sep 25 2024 16:04:52 GMT+0300 (GMT+03:00)-{\"name\":\"NOT FOUND\",\"statusCode\":400,\"isOperational\":true,\"errorStack\":false,\"logError\":{}}","private":true}
+{"level":"error","message":"Wed Sep 25 2024 16:05:45 GMT+0300 (GMT+03:00)-{\"name\":\"NOT FOUND\",\"statusCode\":400,\"isOperational\":true,\"errorStack\":false,\"logError\":{}}","private":true}
+{"level":"error","message":"Wed Sep 25 2024 16:13:04 GMT+0300 (GMT+03:00)-{\"name\":\"Data Not found\",\"statusCode\":{\"name\":\"API Error\",\"statusCode\":500,\"isOperational\":true},\"isOperational\":true}","private":true}
+{"level":"error","message":"Wed Sep 25 2024 16:13:25 GMT+0300 (GMT+03:00)-{\"name\":\"Data Not found\",\"statusCode\":{\"name\":\"API Error\",\"statusCode\":500,\"isOperational\":true},\"isOperational\":true}","private":true}
+{"level":"error","message":"Fri Sep 27 2024 13:40:42 GMT+0300 (GMT+03:00)-{\"name\":\"Data Not found\",\"statusCode\":{\"name\":\"API Error\",\"statusCode\":500,\"isOperational\":true},\"isOperational\":true}","private":true}
+{"level":"error","message":"Fri Sep 27 2024 13:42:57 GMT+0300 (GMT+03:00)-{\"name\":\"Data Not found\",\"statusCode\":{\"name\":\"API Error\",\"statusCode\":500,\"isOperational\":true},\"isOperational\":true}","private":true}
+{"level":"error","message":"Fri Sep 27 2024 13:44:29 GMT+0300 (GMT+03:00)-{\"name\":\"Data Not found\",\"statusCode\":{\"name\":\"API Error\",\"statusCode\":500,\"isOperational\":true},\"isOperational\":true}","private":true}
+{"level":"error","message":"Fri Sep 27 2024 13:44:55 GMT+0300 (GMT+03:00)-{\"name\":\"Data Not found\",\"statusCode\":{\"name\":\"API Error\",\"statusCode\":500,\"isOperational\":true},\"isOperational\":true}","private":true}
+{"level":"error","message":"Fri Sep 27 2024 13:45:10 GMT+0300 (GMT+03:00)-{\"name\":\"Data Not found\",\"statusCode\":{\"name\":\"API Error\",\"statusCode\":500,\"isOperational\":true},\"isOperational\":true}","private":true}
+{"level":"error","message":"Fri Sep 27 2024 15:16:28 GMT+0300 (GMT+03:00)-{\"name\":\"NOT FOUND\",\"statusCode\":400,\"isOperational\":true,\"errorStack\":false,\"logError\":{}}","private":true}
