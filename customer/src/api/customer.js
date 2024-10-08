@@ -1,10 +1,11 @@
 const CustomerService = require("../services/customer-service");
-const { SubscribeMessage } = require("../utils");
 const UserAuth = require("./middlewares/auth");
+const { Server } = require("../utils");
 
 module.exports = (app, channel) => {
   const service = new CustomerService();
-  SubscribeMessage(channel, "CUSTOMER_ROUTING_KEY", service);
+  // rabbitMQ RPC server initiation
+  Server(channel, service);
 
   app.post("/signup", async (req, res, next) => {
     try {

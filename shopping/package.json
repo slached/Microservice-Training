@@ -24,6 +24,8 @@
     "winston": "^3.14.2"
   },
   "devDependencies": {
-    "@types/express": "^5.0.0"
+    "@types/amqplib": "^0.10.5",
+    "@types/express": "^5.0.0",
+    "@types/uuid": "^10.0.0"
   }
 }

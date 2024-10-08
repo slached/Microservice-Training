@@ -1,10 +1,10 @@
 const ShoppingService = require("../services/shopping-service");
-const { PublishMessage, SubscribeMessage } = require("../utils");
+const { Server, ClientMessage } = require("../utils");
 const UserAuth = require("./middlewares/auth");
 
 module.exports = (app, channel) => {
   const service = new ShoppingService();
-  SubscribeMessage(channel, "SHOPPING_ROUTING_KEY", service);
+  Server(channel, service);
 
   app.post("/order", UserAuth, async (req, res, next) => {
     const { _id } = req.user;
@@ -23,7 +23,7 @@ module.exports = (app, channel) => {
 
     try {
       const message = JSON.stringify({ event: "GET_SHOPPING_DETAILS", data: { _id: _id } });
-      const { data } = await PublishMessage(channel, "CUSTOMER_ROUTING_KEY", message);
+      const { data } = await ClientMessage(channel, message, "RPC_CUSTOMER_QUEUE");
       return res.status(200).json(data.orders);
     } catch (err) {
       next(err);
@@ -34,7 +34,7 @@ module.exports = (app, channel) => {
     const { _id } = req.user;
     try {
       const message = JSON.stringify({ event: "GET_SHOPPING_DETAILS", data: { _id: _id } });
-      const { data } = await PublishMessage(channel, "CUSTOMER_ROUTING_KEY", message);
+      const { data } = await ClientMessage(channel, message, "RPC_CUSTOMER_QUEUE");
       return res.status(200).json(data.cart);
     } catch (err) {
       next(err);

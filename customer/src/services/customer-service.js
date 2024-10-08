@@ -117,7 +117,7 @@ class CustomerService {
   }
 
   // other services will be communicates with this service from here via Message Brokers
-  async SubscribeEvents(payload) {
+  async SubscribeEvents(payload) {    
     const { event, data } = payload;
 
     const { _id, product, order, qty } = data;
