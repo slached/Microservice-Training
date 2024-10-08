@@ -1,7 +1,7 @@
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
-
-const { APP_SECRET } = require("../config");
+const amqp = require("amqplib");
+const { APP_SECRET, RABBIT_CONNECTION_URI, EXCHANGE_NAME, QUEUE_NAME } = require("../config");
 
 //Utility functions
 const GenerateSalt = async () => {
@@ -44,6 +44,45 @@ const FormateData = (data) => {
   }
 };
 
+// message broker implementation
+
+const CreateChannel = async () => {
+  try {
+    const connection = await amqp.connect(RABBIT_CONNECTION_URI);
+    const channel = await connection.createChannel();
+    await channel.assertExchange(EXCHANGE_NAME, "direct");
+    return channel;
+  } catch (error) {
+    return error;
+  }
+};
+
+const PublishMessage = async (channel, routing_key, message) => {
+  try {
+    return await channel.publish(EXCHANGE_NAME, routing_key, Buffer.from(message));
+  } catch (error) {
+    return error;
+  }
+};
+
+const SubscribeMessage = async (channel, routing_key, service) => {
+  try {
+    const queue = await channel.assertQueue(QUEUE_NAME);
+    await channel.bindQueue(queue.queue, EXCHANGE_NAME, routing_key);
+    channel.consume(queue.queue, async(data) => {
+      console.log("data received");
+
+      if (data.fields.routingKey === routing_key) {
+        channel.ack(data);       
+        const message = JSON.parse(data.content)
+        return await service.SubscribeEvents(message)
+      }
+    });
+  } catch (error) {
+    return error;
+  }
+};
+
 module.exports = {
   GenerateSalt,
   GeneratePassword,
@@ -51,4 +90,7 @@ module.exports = {
   GenerateSignature,
   ValidateSignature,
   FormateData,
+  CreateChannel,
+  SubscribeMessage,
+  PublishMessage,
 };

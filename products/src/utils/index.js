@@ -1,9 +1,8 @@
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
-const axios = require("axios");
+const amqp = require("amqplib");
 
-const { APP_SECRET } = require("../config");
-const { APIError, STATUS_CODES } = require("./app-errors");
+const { APP_SECRET, RABBIT_CONNECTION_URI, EXCHANGE_NAME, QUEUE_NAME } = require("../config");
 
 //Utility functions
 module.exports.GenerateSalt = async () => {
@@ -47,16 +46,41 @@ module.exports.FormateData = (data) => {
   }
 };
 
-module.exports.SendRequestToTheAnotherService = async (payload, serviceName) => {
-  const request = await axios.post(`http://localhost:8000/${serviceName}/app-events`, { payload: payload });
-  if (request.status === 200) {
-    return request.data;
-  } else {
-    throw new APIError(
-      "Axios Request Error",
-      STATUS_CODES.BAD_REQUEST,
-      "An error occurred while communication between services",
-      true
-    );
+// message broker implementation
+
+module.exports.CreateChannel = async () => {  
+  try {
+    const connection = await amqp.connect(RABBIT_CONNECTION_URI);
+    const channel = await connection.createChannel();
+    await channel.assertExchange(EXCHANGE_NAME, "direct");    
+    return channel;
+  } catch (error) {    
+    return error;
+  }
+};
+
+module.exports.PublishMessage = async (channel, routing_key, message) => {
+  try {
+    return await channel.publish(EXCHANGE_NAME, routing_key, Buffer.from(message));
+  } catch (error) {
+    return error;
+  }
+};
+
+module.exports.SubscribeMessage = async (channel, routing_key, service) => {
+  try {
+    const queue = await channel.assertQueue(QUEUE_NAME);
+    await channel.bindQueue(queue.queue, EXCHANGE_NAME, routing_key);
+    channel.consume(queue.queue, async (data) => {
+      console.log("data received");
+
+      if (data.fields.routingKey === routing_key) {
+        channel.ack(data);
+        const message = JSON.parse(data.content);
+        return await service.SubscribeEvents(message);
+      }
+    });
+  } catch (error) {
+    return error;
   }
 };

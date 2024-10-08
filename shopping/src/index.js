@@ -6,6 +6,7 @@ const HandleErrors = require("./utils/error-handler");
 const express = require("express");
 const { PORT } = require("./config");
 const { databaseConnection } = require("./database");
+const { CreateChannel } = require('./utils');
 
 const StartServer = async () => {
   const app = express();
@@ -17,8 +18,10 @@ const StartServer = async () => {
   app.use(cors());
   app.use(express.static(__dirname + "/public"));
 
+  const channel = await CreateChannel()
+
   //api
-  shopping(app);
+  shopping(app, channel);
 
   // error handling
   app.use(HandleErrors);

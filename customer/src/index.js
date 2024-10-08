@@ -3,11 +3,12 @@ require("dotenv").config();
 const express = require("express");
 const { PORT } = require("./config");
 const { databaseConnection } = require("./database");
-const { customer, appEvents } = require("./api");
+const { customer } = require("./api");
 const cors = require("cors");
 require("colors");
 
 const HandleErrors = require("./utils/error-handler");
+const { CreateChannel } = require('./utils');
 
 const StartServer = async () => {
   const app = express();
@@ -25,8 +26,9 @@ const StartServer = async () => {
   app.use(express.urlencoded({ extended: true, limit: "1mb" }));
   app.use(cors());
 
-  appEvents(app);
-  customer(app);
+  const channel = await CreateChannel();
+
+  customer(app,channel);
 
   // error handling
   app.use(HandleErrors);

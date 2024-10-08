@@ -123,7 +123,7 @@ class CustomerService {
     const { _id, product, order, qty } = data;
 
     switch (event) {
-      case "ADD_TO_WISHLIST":
+      case "ADD_TO_WISHLIST":        
         return this.AddToWishlist(_id, product);
       case "ADD_TO_CART":
         return this.ManageCart(_id, product, qty, false);

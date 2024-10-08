@@ -1,9 +1,10 @@
 const ShoppingService = require("../services/shopping-service");
-const { SendRequestToTheAnotherService } = require("../utils");
+const { PublishMessage, SubscribeMessage } = require("../utils");
 const UserAuth = require("./middlewares/auth");
 
-module.exports = (app) => {
+module.exports = (app, channel) => {
   const service = new ShoppingService();
+  SubscribeMessage(channel, "SHOPPING_ROUTING_KEY", service);
 
   app.post("/order", UserAuth, async (req, res, next) => {
     const { _id } = req.user;
@@ -21,8 +22,8 @@ module.exports = (app) => {
     const { _id } = req.user;
 
     try {
-      const payload = { event: "GET_SHOPPING_DETAILS", data: { _id: _id } };
-      const { data } = await SendRequestToTheAnotherService(payload, "customer");
+      const message = JSON.stringify({ event: "GET_SHOPPING_DETAILS", data: { _id: _id } });
+      const { data } = await PublishMessage(channel, "CUSTOMER_ROUTING_KEY", message);
       return res.status(200).json(data.orders);
     } catch (err) {
       next(err);
@@ -32,8 +33,8 @@ module.exports = (app) => {
   app.get("/cart", UserAuth, async (req, res, next) => {
     const { _id } = req.user;
     try {
-      const payload = { event: "GET_SHOPPING_DETAILS", data: { _id: _id } };
-      const { data } = await SendRequestToTheAnotherService(payload, "customer");
+      const message = JSON.stringify({ event: "GET_SHOPPING_DETAILS", data: { _id: _id } });
+      const { data } = await PublishMessage(channel, "CUSTOMER_ROUTING_KEY", message);
       return res.status(200).json(data.cart);
     } catch (err) {
       next(err);
